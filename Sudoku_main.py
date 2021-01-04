@@ -134,6 +134,17 @@ def action_input_check(string):
                 print("Господи, ну тут всего-то надо клацнуть либо на 1, либо на 0. Что сложного то?")
     return arg_choise
 
+def input_cells(string):
+    while(1):
+            try:
+                arg_cells = int(input(string))
+                if arg_cells < 0 or arg_cells > 81:
+                    raise Exception()
+                break
+            except Exception:
+                print("Неверный формат. Побробуй еще раз. Число должно быть от 0 до 81.\nНо, скорее всего, если число будет меньше 25, то сгенерируется максимальное близкое к этому числу решение")
+    return arg_cells
+
 def play_game(example, start_grid):
 
     game_over = 0
@@ -160,7 +171,7 @@ while(1):
         newGame.mix()
         #newGame.show() #Раскомментировать, чтобы видеть перед началом матча "ответы"
         print("---------------------------\n---------------------------\n---------------------------")
-        newGame.solve(int(input("Введите количество заполненных ячеек: ")))
+        newGame.solve(input_cells("Введите количество заполненных ячеек: "))
         newGame.show()
 
         start_grid = [[newGame.table[i][j] for j in range(newGame.n*newGame.n)] for i in range(newGame.n*newGame.n)] # состояние таблицы на начало игры
