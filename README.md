@@ -6,7 +6,7 @@
 
 Файлы:
 
-1)investment.py
+1)investment.py\n
 2)YNDX_150101_151231.csv
 3)YNDX_160101_161231.csv
 4)investment.ipynb
